@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image carousel</title>
     <script defer src="slideshow.js"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <img
@@ -15,10 +16,21 @@
       height="300"
     />
     <div id="buttonField">
-      <button type="button" id="stop-btn">Stop</button>
+      <button type="button" id="auto-backward-btn">Auto Backward</button>
       <button type="button" id="backward-btn">Backwards</button>
+      <button type="button" id="stop-btn">Stop</button>
       <button type="button" id="forward-btn">Forward</button>
       <button type="button" id="auto-forward-btn">Auto Forward</button>
+    </div>
+
+    <div id="auto-second-input-field">
+      <label>Seconds for auto play:</label>
+      <input
+        id="auto-seconds"
+        type="number"
+        min="1"
+        placeholder="seconds for auto play"
+      />
     </div>
   </body>
 </html>
