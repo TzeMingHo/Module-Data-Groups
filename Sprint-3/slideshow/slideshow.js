@@ -74,5 +74,3 @@ document.getElementById("auto-backward").addEventListener("click", () => {
   let second = document.getElementById("auto-seconds").value;
   slideShow.autoBackward(second);
 });
-
-window.onload = slideShow;

@@ -45,3 +45,7 @@ button:hover {
   font-weight: bold;
   border-radius: 8px;
 }
+
+#auto-seconds:hover {
+  color: var(--pink-color);
+}
