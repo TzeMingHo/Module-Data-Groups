@@ -10,7 +10,7 @@ function createSlideShow() {
   let currentImageIndex = 0;
   let image = document.getElementById("carousel-img");
   let intervalId;
-  let stopButton = document.getElementById("stop-btn");
+  let stopButton = document.getElementById("stop");
   stopButton.style.display = "none";
   let secondsInput = document.getElementById("auto-seconds");
 
@@ -63,14 +63,16 @@ document.getElementById("forward-btn").addEventListener("click", () => {
 document.getElementById("backward-btn").addEventListener("click", () => {
   slideShow.backwards();
 });
-document.getElementById("auto-forward-btn").addEventListener("click", () => {
+document.getElementById("auto-forward").addEventListener("click", () => {
   let second = document.getElementById("auto-seconds").value;
   slideShow.autoForward(second);
 });
-document.getElementById("stop-btn").addEventListener("click", () => {
+document.getElementById("stop").addEventListener("click", () => {
   slideShow.stop();
 });
-document.getElementById("auto-backward-btn").addEventListener("click", () => {
+document.getElementById("auto-backward").addEventListener("click", () => {
   let second = document.getElementById("auto-seconds").value;
   slideShow.autoBackward(second);
 });
+
+window.onload = slideShow;
