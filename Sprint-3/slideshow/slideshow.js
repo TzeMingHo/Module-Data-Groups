@@ -10,6 +10,9 @@ function createSlideShow() {
   let currentImageIndex = 0;
   let image = document.getElementById("carousel-img");
   let intervalId;
+  let stopButton = document.getElementById("stop-btn");
+  stopButton.style.display = "none";
+  let secondsInput = document.getElementById("auto-seconds");
 
   return {
     forward() {
@@ -31,9 +34,13 @@ function createSlideShow() {
           this.forward();
         }, second * 1000);
       }
+      secondsInput.style.display = "none";
+      stopButton.style.display = "block";
     },
     stop() {
       clearInterval(intervalId);
+      secondsInput.style.display = "block";
+      stopButton.style.display = "none";
     },
     autoBackward(second) {
       this.stop();
@@ -42,6 +49,8 @@ function createSlideShow() {
           this.backwards();
         }, second * 1000);
       }
+      secondsInput.style.display = "none";
+      stopButton.style.display = "block";
     },
   };
 }
