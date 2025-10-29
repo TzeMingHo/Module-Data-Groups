@@ -13,6 +13,7 @@ function createSlideShow() {
   let stopButton = document.getElementById("stop");
   stopButton.style.display = "none";
   let secondsInput = document.getElementById("auto-seconds");
+  let second;
 
   return {
     forward() {
@@ -27,8 +28,9 @@ function createSlideShow() {
         : currentImageIndex--;
       image.src = images[currentImageIndex];
     },
-    autoForward(second) {
+    autoForward() {
       this.stop();
+      this.getSecondValue();
       if (second >= 1) {
         intervalId = setInterval(() => {
           this.forward();
@@ -42,8 +44,9 @@ function createSlideShow() {
       secondsInput.style.display = "block";
       stopButton.style.display = "none";
     },
-    autoBackward(second) {
+    autoBackward() {
       this.stop();
+      this.getSecondValue();
       if (second >= 1) {
         intervalId = setInterval(() => {
           this.backwards();
@@ -51,6 +54,9 @@ function createSlideShow() {
       }
       secondsInput.style.display = "none";
       stopButton.style.display = "block";
+    },
+    getSecondValue() {
+      second = document.getElementById("auto-seconds").value;
     },
   };
 }
@@ -64,13 +70,11 @@ document.getElementById("backward-btn").addEventListener("click", () => {
   slideShow.backwards();
 });
 document.getElementById("auto-forward").addEventListener("click", () => {
-  let second = document.getElementById("auto-seconds").value;
-  slideShow.autoForward(second);
+  slideShow.autoForward();
 });
 document.getElementById("stop").addEventListener("click", () => {
   slideShow.stop();
 });
 document.getElementById("auto-backward").addEventListener("click", () => {
-  let second = document.getElementById("auto-seconds").value;
-  slideShow.autoBackward(second);
+  slideShow.autoBackward();
 });
